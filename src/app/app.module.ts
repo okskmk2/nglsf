@@ -11,6 +11,9 @@ import { UserComponent } from './user/user.component';
 import { AccountComponent } from './account/account.component';
 import { IndexComponent } from './index/index.component';
 
+import { JobService } from './job/job.service';
+import { AccountService } from './account/account.service';
+
 const routes: Routes = [
   // 사용자 화면
   {path: '', component: IndexComponent, children: [
@@ -34,9 +37,10 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [JobService, AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
